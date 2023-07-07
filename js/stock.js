@@ -18,7 +18,7 @@ let stock = [
         nombre:"Teclado Redragon k568",
         marca:"Redragon",
         precio:21490,
-        imagen:"..img/redragon-k616.png/",
+        imagen:"..img/redragon-k616.png",
     },
     {
         id:"4",

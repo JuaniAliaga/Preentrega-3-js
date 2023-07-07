@@ -32,6 +32,12 @@ header{
     font-weight: bold;
 }
 
+.cards{
+    display: flex;
+    margin: 0, 1.5em;
+    gap: 1em;
+}
+
 .card{
     border: 2px solid grey;
     border-radius: 7px;
@@ -42,6 +48,8 @@ header{
 
 .img-card{
     width: 17em;
+    height: 17em;
+    object-fit: contain;
 }
 
 .info{
