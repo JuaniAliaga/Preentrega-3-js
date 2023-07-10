@@ -75,3 +75,18 @@ header{
     margin-bottom: 3px;
     cursor: pointer;
 }
+
+#section-cards{
+    margin: 0 1em;
+}
+
+#titulo-carrito {
+text-align: center;
+margin-top: 1em;
+font-size: 3rem;
+}
+
+#parrafo-carrito{
+text-align: center;
+font-size: 1.5rem;
+}

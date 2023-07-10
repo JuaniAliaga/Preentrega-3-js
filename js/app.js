@@ -1,4 +1,4 @@
-let stock = [
+const stock = [
     {
         id:"1",
         nombre:"Teclado Genesis Thor 303",
@@ -18,7 +18,7 @@ let stock = [
         nombre:"Teclado Redragon k568",
         marca:"Redragon",
         precio:21490,
-        imagen:"..img/redragon-k616.png",
+        imagen:"../img/redragon-k566.png",
     },
     {
         id:"4",
@@ -61,7 +61,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const contenedor = document.getElementById("section-cards")
 
-function mostrarProductos(productos) {
+function dibujarProductos(productos) {
     
     contenedor.innerHTML = "";
 
@@ -85,10 +85,25 @@ function mostrarProductos(productos) {
         `
         div.appendChild(card)
 
-    })
-
+        const agregar = document.getElementById(elemento.id)
         
+        agregar.addEventListener( "click" , () =>{
+            agregarCarrito(elemento.id)
+        })
+
+    })
+}
+
+function agregarCarrito(item) {
+    if (!carrito.some((it) => it.id === item.id)) {
+        let itemNuevo = stock.find((elemento) => elemento.id === item.id)
+        carrito.push({...itemNuevo, cantidad:1})
+    }else{
+        let itemNuevo = carrito.find((elemento) => elemento.id === item.id)
+        itemNuevo.cantidad++
+    }
+    localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
 
-mostrarProductos(stock)
+dibujarProductos(stock)
