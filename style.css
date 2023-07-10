@@ -90,3 +90,15 @@ font-size: 3rem;
 text-align: center;
 font-size: 1.5rem;
 }
+
+.tarjetas-carrito{
+    border: 1px solid red;
+    width: min-content;
+}
+
+#elementos-carrito{
+    margin: 0 5em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .9em;
+}

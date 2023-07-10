@@ -95,15 +95,43 @@ function dibujarProductos(productos) {
 }
 
 function agregarCarrito(item) {
-    if (!carrito.some((it) => it.id === item.id)) {
-        let itemNuevo = stock.find((elemento) => elemento.id === item.id)
+    if (!carrito.some((it) => it.id === item)) {
+        let itemNuevo = stock.find((elemento) => elemento.id === item)
         carrito.push({...itemNuevo, cantidad:1})
     }else{
-        let itemNuevo = carrito.find((elemento) => elemento.id === item.id)
+        let itemNuevo = carrito.find((elemento) => elemento.id === item)
         itemNuevo.cantidad++
     }
     localStorage.setItem("carrito", JSON.stringify(carrito))
+    mostrarCarrito()
 }
 
+function mostrarCarrito() {
+    const elementosCarrito = document.getElementById("elementos-carrito")
+    elementosCarrito.innerHTML = ""
+    if (carrito.length > 0) {
+        carrito.forEach(product => {
+            const tarjetasCarrito = document.createElement("div") 
+            tarjetasCarrito.classList.add("tarjetas-carrito")
+            tarjetasCarrito.innerHTML = `
+            <img src="../img/${product.imagen}" alt="${product.nombre}" class="img-card">
+            <div class="info">
+            <h2 class="nombre-carrito">${product.nombre}</h2>
+            <p class="precio-carrito">$${product.precio}</p>
+            <p class="cantidad">Cantidad: ${product.cantidad}</p>
+            </div>
+            <div class="contador">
+            <button id="sumar-${product.id}" class="boton">+</button>
+            <button id="bajar-${product.id}" class="boton">-</button>
+            </div>
+            `;
+            elementosCarrito.appendChild(tarjetasCarrito)
+        })
+
+    }
+}
+
+// localStorage.clear(carrito)
 
 dibujarProductos(stock)
+mostrarCarrito()
