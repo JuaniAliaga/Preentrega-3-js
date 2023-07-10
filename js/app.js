@@ -4,14 +4,14 @@ const stock = [
         nombre:"Teclado Genesis Thor 303",
         marca:"Genesis",
         precio:19990,
-        imagen:"../img/teclado-genesis.png",
+        imagen:"./img/teclado-genesis.png",
     },
     {
         id:"2",
         nombre:"Teclado Redragon k552",
         marca:"Redragon",
         precio:20990,
-        imagen:"../img/redragon-kumara-k552.png",
+        imagen:"/img/redragon-kumara-k552.png",
     },
     {
         id:"3",
