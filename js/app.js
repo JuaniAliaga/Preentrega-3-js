@@ -4,7 +4,7 @@ const stock = [
         nombre:"Teclado Genesis Thor 303",
         marca:"Genesis",
         precio:19990,
-        imagen:"../img/teclado-genesis.png",
+        imagen:"../img/teclado-genesiss.png",
     },
     {
         id:"2",
@@ -39,7 +39,7 @@ const stock = [
         nombre:"Teclado Hyperx Alloy Fps Core",
         marca:"Hyperx",
         precio:25399,
-        imagen:"../img/hyperx-alloy-fps-core.jpg",
+        imagen:"../img/hyperx-alloy-fps-coree.png",
     },
     {
         id:"7",
@@ -111,6 +111,11 @@ function agregarCarrito(item) {
 function mostrarCarrito() {
     const elementosCarrito = document.getElementById("elementos-carrito")
     elementosCarrito.innerHTML = ""
+
+    const totalCarrito = document.getElementById("total-carrito");
+    calculoTotal(totalCarrito)
+
+
     if (carrito.length > 0) {
         carrito.forEach(product => {
             const tarjetasCarrito = document.createElement("div") 
@@ -163,10 +168,13 @@ function incrementarProductos(id) {
 ///Funcionalidad para boton decrementar
 function decrementarProductos(id) {
     const producto = carrito.find((elemento) => elemento.id === id);
-    console.log(producto);
+    if (producto.cantidad === 1) {
+        eliminarProductos(producto.id)
+    }else{
     producto.cantidad--;
     localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
+}
 }
 
 ///Funcionalidd para boton de eliminar
@@ -174,6 +182,13 @@ function eliminarProductos(id) {
     carrito = carrito.filter((producto) => producto.id !== id)
     localStorage.setItem("carrito", JSON.stringify(carrito))
     mostrarCarrito()
+}
+
+///Funcionalidad para calcular total
+function calculoTotal(producto) {
+    const total = carrito.reduce((acc, elemento) => acc + elemento.precio * elemento.cantidad, 0);
+    const totalFormateado = total.toLocaleString();
+    total === 0 ? producto.textContent = ` ` : producto.textContent = `El total de su compra es: $${totalFormateado}`;
 }
 
 dibujarProductos(stock);
