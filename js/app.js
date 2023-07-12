@@ -162,7 +162,8 @@ function incrementarProductos(id) {
 
 ///Funcionalidad para boton decrementar
 function decrementarProductos(id) {
-    const producto = carrito.find((elemento) =>{elemento.id === id});
+    const producto = carrito.find((elemento) => elemento.id === id);
+    console.log(producto);
     producto.cantidad--;
     localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
