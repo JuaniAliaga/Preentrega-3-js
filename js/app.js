@@ -53,7 +53,7 @@ const stock = [
         nombre:"Teclado Inalambrido Redragon K599",
         marca:"Redragon",
         precio:27990,
-        imagen:"./img/redragon-k577.png",
+        imagen:"/img/redragon-k577.png",
     },
 ]
 
@@ -121,7 +121,7 @@ function mostrarCarrito() {
             const tarjetasCarrito = document.createElement("div") 
             tarjetasCarrito.classList.add("tarjetas-carrito")
             tarjetasCarrito.innerHTML = `
-            <img src="../img/${product.imagen}" alt="${product.nombre}" class="img-card">
+            <img src="${product.imagen}" alt="${product.nombre}" class="img-card">
             <div class="info">
             <h2 class="nombre-carrito">${product.nombre}</h2>
             <p class="precio-carrito">$${product.precio}</p>
