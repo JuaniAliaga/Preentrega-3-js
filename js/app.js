@@ -53,7 +53,7 @@ const stock = [
         nombre:"Teclado Inalambrido Redragon K599",
         marca:"Redragon",
         precio:27990,
-        imagen:"/img/redragon-k577.png",
+        imagen:"./img/redragon-k577.png",
     },
 ]
 
