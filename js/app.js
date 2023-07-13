@@ -39,21 +39,21 @@ const stock = [
         nombre:"Teclado Hyperx Alloy Fps Core",
         marca:"Hyperx",
         precio:25399,
-        imagen:"/img/hyperx-alloy-fps-coree.png",
+        imagen:"../img/hyperx-alloy-fps-coree.png",
     },
     {
         id:"7",
         nombre:"Teclado Redragon k530",
         marca:"Redragon",
         precio:27990,
-        imagen:"/img/redragon-k531.png",
+        imagen:"../img/redragon-k531.png",
     },
     {
         id:"8",
         nombre:"Teclado Inalambrido Redragon K599",
         marca:"Redragon",
         precio:27990,
-        imagen:"/img/redragon-k577.png",
+        imagen:"../img/redragon-k577.png",
     },
 ]
 
