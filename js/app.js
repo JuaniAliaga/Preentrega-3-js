@@ -1,61 +1,4 @@
-const stock = [
-    {
-        id:"1",
-        nombre:"Teclado Genesis Thor 303",
-        marca:"Genesis",
-        precio:19990,
-        imagen:"./img/teclado-genesiss.png",
-    },
-    {
-        id:"2",
-        nombre:"Teclado Redragon k552",
-        marca:"Redragon",
-        precio:20990,
-        imagen:"./img/redragon-kumara-k552.png",
-    },
-    {
-        id:"3",
-        nombre:"Teclado Redragon k568",
-        marca:"Redragon",
-        precio:21490,
-        imagen:"./img/redragon-k566.png",
-    },
-    {
-        id:"4",
-        nombre:"Teclado Redragon k552",
-        marca:"Redragon",
-        precio:22990,
-        imagen:"./img/redragon-k552.png",
-    },
-    {
-        id:"5",
-        nombre:"Teclado Redragon k616",
-        marca:"Redragon",
-        precio:24990,
-        imagen:"./img/redragon-k616.png",
-    },
-    {
-        id:"6",
-        nombre:"Teclado Hyperx Alloy Fps Core",
-        marca:"Hyperx",
-        precio:25399,
-        imagen:"./img/hyperx-alloy-fps-coree.png",
-    },
-    {
-        id:"7",
-        nombre:"Teclado Redragon k530",
-        marca:"Redragon",
-        precio:27990,
-        imagen:"./img/redragon-k531.png",
-    },
-    {
-        id:"8",
-        nombre:"Teclado Inalambrido Redragon K599",
-        marca:"Redragon",
-        precio:27990,
-        imagen:"./img/redragon-k577.png",
-    },
-]
+let stock;
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -191,5 +134,12 @@ function calculoTotal(producto) {
     total === 0 ? producto.textContent = ` ` : producto.textContent = `El total de su compra es: $${totalFormateado}`;
 }
 
-dibujarProductos(stock);
-mostrarCarrito();
+
+
+fetch("./js/stock.json")
+        .then((response) => response.json())
+        .then((productos) => {
+        dibujarProductos(productos);
+        stock = productos;
+        mostrarCarrito();
+        })
