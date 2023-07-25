@@ -32,6 +32,23 @@ header{
     font-weight: bold;
 }
 
+#container-buscador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#buscador{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 300px;
+    background-color: #fff; 
+    color: #333;
+}
+
 .cards{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(276px, 1fr));
