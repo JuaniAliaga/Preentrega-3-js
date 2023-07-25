@@ -39,12 +39,13 @@ function dibujarProductos(productos) {
 }
 
 //Evento para buscar productos
-const buscador =document.getElementById("buscador")
+const buscador = document.getElementById("buscador")
 
 buscador.addEventListener("keyup", () =>{
     const filtro = stock.filter(prod => prod.nombre.toLowerCase().includes(buscador.value.toLowerCase()))
     dibujarProductos(filtro)
 })
+
 
 
 ///Se agregan los productos al local storage

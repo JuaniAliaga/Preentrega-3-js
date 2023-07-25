@@ -4,14 +4,14 @@
         "nombre":"Teclado Genesis Thor 303",
         "marca":"Genesis",
         "precio":19990,
-        "imagen":"../img/teclado-genesiss.png"
+        "imagen":"./img/teclado-genesiss.png"
     },
     {
         "id":"2",
         "nombre":"Teclado Redragon k552",
         "marca":"Redragon",
         "precio":20990,
-        "imagen":"../img/redragon-kumara-k552.png"
+        "imagen":"./img/redragon-kumara-k552.png"
     },
     {
         "id":"3",
@@ -25,14 +25,14 @@
         "nombre":"Teclado Redragon k552",
         "marca":"Redragon",
         "precio":22990,
-        "imagen":"../img/redragon-k552.png"
+        "imagen":"./img/redragon-k552.png"
     },
     {
         "id":"5",
         "nombre":"Teclado Redragon k616",
         "marca":"Redragon",
         "precio":24990,
-        "imagen":"../img/redragon-k616.png"
+        "imagen":"./img/redragon-k616.png"
     },
     {
         "id":"6",
@@ -46,56 +46,56 @@
         "nombre":"Teclado Redragon k530",
         "marca":"Redragon",
         "precio":27990,
-        "imagen":"../img/redragon-k531.png"
+        "imagen":"./img/redragon-k531.png"
     },
     {
         "id":"8",
         "nombre":"Teclado Inalambrido Redragon K599",
         "marca":"Redragon",
         "precio":27990,
-        "imagen":"../img/redragon-k577.png"
+        "imagen":"./img/redragon-k577.png"
     },
     {
         "id":"9",
         "nombre":"Mouse Genesis XENON 220",
         "marca":"Genesis",
         "precio":8569,
-        "imagen":"../img/mouse-genesis.png"
+        "imagen":"./img/mouse-genesis.png"
     },
     {
         "id":"10",
         "nombre":"Mouse Redragon M610 GAINER",
         "marca":"Redragon",
         "precio":14399,
-        "imagen":"../img/mouse-redragon-m611.png"
+        "imagen":"./img/mouse-redragon-m611.png"
     },
     {
         "id":"11",
         "nombre":"Mouse Logitech G300S ",
         "marca":"Logitech",
         "precio":20889,
-        "imagen":"../img/mouse-logitech-g300S.jpg"
+        "imagen":"./img/mouse-logitech-g300S.jpg"
     },
     {
         "id":"12",
         "nombre":"Mouse Hyperx Pulsefire FPS PRO ",
         "marca":"Hyperx",
         "precio":28049,
-        "imagen":"../img/mouse-hyperx-pulsefire-fps-pro.jpg"
+        "imagen":"./img/mouse-hyperx-pulsefire-fps-pro.jpg"
     },
     {
         "id":"13",
         "nombre":"Mouse Hyperx PULSEFIRE RAID",
         "marca":"Hyperx",
         "precio":29689,
-        "imagen":"../img/mouse-hyperx-pulsefire-raid.jpg"
+        "imagen":"./img/mouse-hyperx-pulsefire-raid.jpg"
     },
     {
         "id":"14",
         "nombre":"Mouse Hyperx Pulsefire RGB",
         "marca":"Hyperx",
         "precio":31889,
-        "imagen":"../img/mouse-hyperx-pulsefire-rgb.jpg"
+        "imagen":"./img/mouse-hyperx-pulsefire-rgb.jpg"
     },
     {
         "id":"15",
