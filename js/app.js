@@ -3,11 +3,21 @@ let totalFormateado;
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+fetch("./js/stock.json")
+    .then((response) => response.json())
+    .then((productos) => {
+        dibujarProductos(productos);
+        stock = productos;
+        mostrarCarrito();
+        finalizarCompra()
+    })
+
+
 const contenedor = document.getElementById("section-cards")
 
 ///Dibujo las tarjetas de los productos
 function dibujarProductos(productos) {
-    
+
     contenedor.innerHTML = "";
 
     const div = document.createElement("div")
@@ -15,7 +25,7 @@ function dibujarProductos(productos) {
 
     contenedor.appendChild(div);
 
-    productos.forEach( (elemento) => {
+    productos.forEach((elemento) => {
 
         const card = document.createElement("div")
         card.classList.add("card")
@@ -31,8 +41,8 @@ function dibujarProductos(productos) {
         div.appendChild(card)
 
         const agregar = document.getElementById(elemento.id)
-        
-        agregar.addEventListener( "click" , () =>{
+
+        agregar.addEventListener("click", () => {
             agregarCarrito(elemento.id)
         })
 
@@ -42,7 +52,7 @@ function dibujarProductos(productos) {
 //Evento para buscar productos
 const buscador = document.getElementById("buscador")
 
-buscador.addEventListener("keyup", () =>{
+buscador.addEventListener("keyup", () => {
     const filtro = stock.filter(prod => prod.nombre.toLowerCase().includes(buscador.value.toLowerCase()))
     dibujarProductos(filtro)
 })
@@ -53,8 +63,8 @@ buscador.addEventListener("keyup", () =>{
 function agregarCarrito(item) {
     if (!carrito.some((it) => it.id === item)) {
         let itemNuevo = stock.find((elemento) => elemento.id === item)
-        carrito.push({...itemNuevo, cantidad:1})
-    }else{
+        carrito.push({ ...itemNuevo, cantidad: 1 })
+    } else {
         let itemNuevo = carrito.find((elemento) => elemento.id === item)
         itemNuevo.cantidad++
     }
@@ -73,7 +83,7 @@ function mostrarCarrito() {
 
     if (carrito.length > 0) {
         carrito.forEach(product => {
-            const tarjetasCarrito = document.createElement("div") 
+            const tarjetasCarrito = document.createElement("div")
             tarjetasCarrito.classList.add("tarjetas-carrito")
             tarjetasCarrito.innerHTML = `
             <img src="${product.imagen}" alt="${product.nombre}" class="img-card">
@@ -91,23 +101,23 @@ function mostrarCarrito() {
             elementosCarrito.appendChild(tarjetasCarrito)
 
             const incrementar = document.getElementById(`sumar-${product.id}`)
-            incrementar.addEventListener("click" , () =>{
+            incrementar.addEventListener("click", () => {
                 incrementarProductos(product.id)
             })
 
             const decrementar = document.getElementById(`bajar-${product.id}`)
-            decrementar.addEventListener("click" , () =>{
+            decrementar.addEventListener("click", () => {
                 decrementarProductos(product.id)
             })
 
             const eliminar = document.getElementById(`eliminar-${product.id}`)
-            eliminar.addEventListener("click", () =>{
+            eliminar.addEventListener("click", () => {
                 eliminarProductos(product.id)
             })
-            
+
         })
 
-    }else{
+    } else {
         elementosCarrito.innerHTML = `<h2 class="carrito-vacio">No hay items en el carrito</h2>`
     }
 }
@@ -125,11 +135,11 @@ function decrementarProductos(id) {
     const producto = carrito.find((elemento) => elemento.id === id);
     if (producto.cantidad === 1) {
         eliminarProductos(producto.id)
-    }else{
-    producto.cantidad--;
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    mostrarCarrito();
-}
+    } else {
+        producto.cantidad--;
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        mostrarCarrito();
+    }
 }
 
 ///Funcionalidd para boton de eliminar
@@ -156,13 +166,3 @@ function finalizarCompra() {
         );
     };
 }
-
-
-fetch("./js/stock.json")
-        .then((response) => response.json())
-        .then((productos) => {
-        dibujarProductos(productos);
-        stock = productos;
-        mostrarCarrito();
-        finalizarCompra()
-        })
