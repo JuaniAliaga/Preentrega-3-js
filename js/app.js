@@ -1,4 +1,5 @@
 let stock;
+let totalFormateado;
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -141,10 +142,20 @@ function eliminarProductos(id) {
 ///Funcionalidad para calcular total
 function calculoTotal(producto) {
     const total = carrito.reduce((acc, elemento) => acc + elemento.precio * elemento.cantidad, 0);
-    const totalFormateado = total.toLocaleString();
+    totalFormateado = total.toLocaleString();
     total === 0 ? producto.textContent = ` ` : producto.textContent = `El total de su compra es: $${totalFormateado}`;
 }
 
+function finalizarCompra() {
+    const btnFinalizar = document.getElementById("btn-finalizar");
+    btnFinalizar.onclick = () => {
+        Swal.fire(
+            'Compra finalizada',
+            `El monto total es de: $${totalFormateado}`,
+            'success'
+        );
+    };
+}
 
 
 fetch("./js/stock.json")
@@ -153,4 +164,5 @@ fetch("./js/stock.json")
         dibujarProductos(productos);
         stock = productos;
         mostrarCarrito();
+        finalizarCompra()
         })
