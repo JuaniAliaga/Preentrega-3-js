@@ -3,14 +3,17 @@ let totalFormateado;
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-fetch("./js/stock.json")
-    .then((response) => response.json())
-    .then((productos) => {
-        dibujarProductos(productos);
-        stock = productos;
-        mostrarCarrito();
-        finalizarCompra()
-    })
+document.addEventListener("DOMContentLoaded",peticionProductos)
+
+async function peticionProductos() {
+    const response = await fetch("./js/stock.json");
+    const productos = await response.json();
+
+    dibujarProductos(productos);
+    stock = productos;
+    mostrarCarrito();
+    finalizarCompra();
+}
 
 
 const contenedor = document.getElementById("section-cards")
